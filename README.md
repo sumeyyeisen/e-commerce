@@ -1,6 +1,7 @@
 # E-Ticaret Backend Projesi
 
-Java Spring Boot ve PostgreSQL kullanılarak geliştirilmiş RESTful API projesi.
+Java Spring Boot ve PostgreSQL ile sipariş, stok takibi ve dinamik fiyatlandırma 
+süreçlerini yöneten RESTful API projesi.
 
 ## Özellikler
 
@@ -12,10 +13,18 @@ Java Spring Boot ve PostgreSQL kullanılarak geliştirilmiş RESTful API projesi
 
 ## Teknolojiler
 
-- Java
+- Java 21
 - Spring Boot
-- PostgreSQL
+- MySQL
+- Docker & Docker Compose
 - Maven
+
+## Çalıştırma
+
+Docker ile tek komutla ayağa kaldır:
+docker compose up
+
+Uygulama http://localhost:8080 adresinde çalışır.
 
 ## Servisler
 
