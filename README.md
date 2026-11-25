@@ -21,7 +21,10 @@ Java Spring Boot ve MySQL ile ürün, sepet, sipariş ve stok takibi süreçleri
 ## Çalıştırma
 
 Docker ile tek komutla ayağa kaldır:
+
+```bash
 docker compose up
+```
 
 Uygulama http://localhost:8080 adresinde çalışır.
 
