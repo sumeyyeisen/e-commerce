@@ -36,3 +36,8 @@ Uygulama http://localhost:8080 adresinde çalışır.
 
 - Bu proje bir backend/API örneğidir. Kimlik doğrulama ve parola hash'leme (ör. BCrypt) kapsam dışıdır; üretim ortamında eklenmelidir.
 - `docker-compose.yml` içindeki veritabanı parolası yerel geliştirme içindir.
+
+## Kapsam ve Notlar
+
+- Bu proje bir backend/API örneğidir. Kimlik doğrulama ve parola hash'leme (ör. BCrypt) kapsam dışıdır; üretim ortamında eklenmelidir.
+- `docker-compose.yml` içindeki veritabanı parolası yerel geliştirme içindir.
