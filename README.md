@@ -31,3 +31,8 @@ Uygulama http://localhost:8080 adresinde çalışır.
 `AddCustomer` `GetProduct` `CreateProduct` `UpdateProduct` `DeleteProduct`  
 `GetCart` `UpdateCart` `EmptyCart` `PlaceOrder` `GetOrderForCode`  
 `GetAllOrdersForCustomer` `AddProductToCart` `RemoveProductFromCart`
+
+## Kapsam ve Notlar
+
+- Bu proje bir backend/API örneğidir. Kimlik doğrulama ve parola hash'leme (ör. BCrypt) kapsam dışıdır; üretim ortamında eklenmelidir.
+- `docker-compose.yml` içindeki veritabanı parolası yerel geliştirme içindir.
