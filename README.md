@@ -1,7 +1,6 @@
 # E-Ticaret Backend Projesi
 
-Java Spring Boot ve PostgreSQL ile sipariş, stok takibi ve dinamik fiyatlandırma 
-süreçlerini yöneten RESTful API projesi.
+Java Spring Boot ve MySQL ile ürün, sepet, sipariş ve stok takibi süreçlerini yöneten RESTful API projesi.
 
 ## Özellikler
 
