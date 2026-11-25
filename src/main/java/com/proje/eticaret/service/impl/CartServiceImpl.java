@@ -11,6 +11,7 @@ import com.proje.eticaret.repository.ProductRepository;
 import com.proje.eticaret.service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -46,6 +47,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
+    @Transactional
     public void emptyCart(Long id) {
         Cart cart = cartRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Cart", "id", id));
@@ -62,6 +64,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
+    @Transactional
     public void addProductToCart(Long cartId, Long productId, Integer quantity) {
         Cart cart = cartRepository.findById(cartId)
                 .orElseThrow(() -> new ResourceNotFoundException("Cart", "id", cartId));

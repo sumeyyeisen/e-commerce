@@ -39,6 +39,7 @@ public class GlobalExceptionHandler {
     // Genel Exception
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleAll(Exception ex) {
+        org.slf4j.LoggerFactory.getLogger(GlobalExceptionHandler.class).error("Beklenmeyen hata", ex);
         return buildErrorResponse("Hata: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 

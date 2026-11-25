@@ -14,6 +14,7 @@ import com.proje.eticaret.repository.OrderRepository;
 import com.proje.eticaret.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -31,6 +32,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderMapper orderMapper;
 
     @Override
+    @Transactional
     public OrderDTO placeOrder(Long customerId) {
         Customer customer = customerRepository.findById(customerId)
                 .orElseThrow(() -> new ResourceNotFoundException("Customer", "id", customerId));
@@ -46,18 +48,20 @@ public class OrderServiceImpl implements OrderService {
         order.setTotalPrice(BigDecimal.valueOf(cart.getTotalPrice()));
         order.setCode(UUID.randomUUID().toString());
 
-        for (Item item : cart.getItems()) {
-            item.setOrder(order);
-            item.setCart(null);
+        for (Item cartItem : cart.getItems()) {
+            Item orderItem = new Item();
+            orderItem.setProduct(cartItem.getProduct());
+            orderItem.setQuantity(cartItem.getQuantity());
+            orderItem.setProductPrice(cartItem.getProductPrice());
+            orderItem.setOrder(order);
+            order.getItems().add(orderItem);
         }
-
-        order.setItems(cart.getItems());
 
         cart.getItems().clear();
         cart.setTotalPrice(0.0);
 
-        cartRepository.save(cart);
         orderRepository.save(order);
+        cartRepository.save(cart);
 
         return orderMapper.toDTO(order);
     }
