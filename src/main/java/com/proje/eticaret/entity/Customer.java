@@ -21,7 +21,6 @@ public class Customer extends BaseEntity{
     private String email;
     private String phone;
     private String address;
-    private String password;
 
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private Cart cart;
